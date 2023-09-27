@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <script src="https://aframe.io/releases/1.0.4/aframe.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/n5ro/aframe-physics-system@v4.0.1/dist/aframe-physics-system.min.js"></script>
+    <script src="bowling.js"></script>
+  </head>
+
+  <body>
+    <a-scene id="scene" physics>
+      <a-entity
+        id="camera"
+        camera
+        position="0 1.6 0"
+        wasd-controls
+        look-controls="pointerLockEnabled: false"
+      >
+        <a-cursor></a-cursor>
+      </a-entity>
+
+      <a-sky color="grey"></a-sky>
+
+      <a-assets timeout="10000">
+        <a-asset-item id="ballImg" src="./assets/models/bowling_ball/scene.gltf"></a-asset-item>
+      </a-assets>
+
+      <a-entity ball gltf-model="#ballImg"></a-entity>
+      <a-plane
+        id="ground"
+        repeat="5 5"
+        position="0 1 0"
+        rotation="-90 0 0"
+        height="200"
+        width="200"
+        color="#FBF2D4"
+        static-body
+        visible="true"
+      >
+      </a-plane>
+    </a-scene>
+  </body>
+</html>
